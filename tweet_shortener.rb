@@ -12,3 +12,14 @@ def dictionary
     'be' => 'b'
   }
 end
+
+def word_substituter(tweet)
+  tweet.split(' ').map! do |word|
+    dictionary.each do |key, val|
+      if key == word
+        word = val
+      end
+    end
+  end
+  tweet
+end
