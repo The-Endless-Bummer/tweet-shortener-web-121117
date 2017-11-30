@@ -14,12 +14,14 @@ def dictionary
 end
 
 def word_substituter(tweet)
-  tweet.split(' ').map! do |word|
+  new_tweet = []
+  tweet.split(' ').map do |word|
     dictionary.each do |key, val|
       if key == word
         word = val
       end
     end
+    new_tweet << word
   end
-  tweet
+  new_tweet.join(' ')
 end
